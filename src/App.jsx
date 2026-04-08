@@ -72,7 +72,7 @@ const Hero = () => {
         <div className="relative aspect-[9/16] h-[480px] md:h-[560px] lg:h-[620px] rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] ring-1 ring-white/10 group transform transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(255,179,0,0.2)] hover:ring-accent/40 bg-black">
           <video
             className="w-full h-full object-cover opacity-90 transition-opacity duration-500 group-hover:opacity-100"
-            src="/hero-video.mp4"
+            src="/VideoUsinaComprimido.mp4"
             autoPlay
             loop
             muted
