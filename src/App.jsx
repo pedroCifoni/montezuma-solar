@@ -184,7 +184,7 @@ const Visao = () => {
   }, []);
 
   return (
-    <section ref={ref} className="relative py-40 px-6 md:px-16 bg-secondary text-textLight overflow-hidden" id="visao">
+    <section ref={ref} className="relative pt-40 pb-24 px-6 md:px-16 bg-secondary text-textLight overflow-hidden" id="visao">
       <div className="absolute inset-0 opacity-20 mix-blend-screen pointer-events-none">
         <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80" alt="Tech grid night sky" className="w-full h-full object-cover" />
       </div>
@@ -195,61 +195,6 @@ const Visao = () => {
         <p className="philo-text font-drama italic text-5xl md:text-6xl lg:text-7xl leading-tight text-white">
           Nós entregamos <span className="text-accentGlow drop-shadow-[0_0_20px_rgba(255,213,79,0.7)] not-italic font-heading font-extrabold tracking-tight">previsibilidade energética</span> <br />para o crescimento da sua empresa.
         </p>
-      </div>
-    </section>
-  );
-};
-
-const Protocol = () => {
-  const containerRef = useRef(null);
-
-  useLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const cards = gsap.utils.toArray('.proto-card');
-      cards.forEach((card, i) => {
-        if (i === cards.length - 1) return;
-        ScrollTrigger.create({
-          trigger: card,
-          start: 'top top',
-          pin: true,
-          pinSpacing: false,
-          animation: gsap.to(card, { scale: 0.9, opacity: 0.5, filter: 'blur(10px)', ease: 'none' }),
-          scrub: true,
-        });
-      });
-    }, containerRef);
-    return () => ctx.revert();
-  }, []);
-
-  const steps = [
-    { num: "01", title: "Assessment Técnico", desc: "Varredura topológica e análise de consumo da sua rede local." },
-    { num: "02", title: "Deploy Físico", desc: "Integração modular de usinas off-site ou instalação em polo." },
-    { num: "03", title: "Operação em Rede", desc: "Ativação inteligente e abatimento direto via infraestrutura compartilhada." }
-  ];
-
-  return (
-    <section ref={containerRef} className="bg-background pt-24 pb-48 px-6 md:px-16 bg-night-grid bg-grid-size relative" id="protocolo">
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background pointer-events-none z-0" />
-      <div className="max-w-4xl mx-auto relative z-10">
-        {steps.map((step, i) => (
-          <div key={i} className="proto-card h-[80vh] flex items-center justify-center sticky top-0 relative origin-top">
-            <div className="w-full bg-white/95 backdrop-blur-md rounded-[3rem] p-12 md:p-20 shadow-[0_20px_50px_rgba(11,31,59,0.1)] border border-primary/5 flex flex-col md:flex-row items-center gap-12 transition-all duration-500 hover:shadow-glass hover:border-accent/20">
-              <div className="flex-1">
-                <span className="font-mono text-accent text-2xl mb-4 block font-semibold drop-shadow-[0_0_10px_rgba(255,179,0,0.4)]">[{step.num}]</span>
-                <h2 className="font-heading font-extrabold text-4xl md:text-5xl text-primary mb-6 tracking-tight">{step.title}</h2>
-                <p className="font-body text-xl text-textDark/60 leading-relaxed font-light">{step.desc}</p>
-              </div>
-              <div className="w-full md:w-1/2 aspect-[4/3] bg-background/50 rounded-3xl flex items-center justify-center overflow-hidden border border-primary/10 relative shadow-inner">
-                {/* Simulated Industrial UI feeling */}
-                <div className={`absolute inset-4 border border-primary/20 rounded-2xl flex items-center justify-center`}>
-                  <div className={`absolute w-32 h-32 border-[3px] rounded-full border-primary/10 animate-[spin_${10 + i}s_linear_infinite] ${i % 2 === 0 ? 'border-t-accent/80 border-r-accent/30 drop-shadow-[0_0_8px_rgba(255,179,0,0.5)]' : 'border-b-accent/80 border-l-accent/30 drop-shadow-[0_0_8px_rgba(255,179,0,0.5)]'}`} />
-                  <div className={`absolute w-16 h-16 border-[2px] rounded-full border-primary/30 animate-[spin_${5 + i}s_linear_infinite_reverse] ${i % 2 !== 0 ? 'border-t-primary border-r-primary' : 'border-b-primary border-l-primary'}`} />
-                  <div className="w-2 h-2 rounded-full bg-accentGlow animate-[pulse_1s_ease-in-out_infinite]" />
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   );
@@ -369,7 +314,7 @@ export default function App() {
         <Hero />
         <Features />
         <Visao />
-        <Protocol />
+        
         <Portfolio />
         <Pricing />
       </main>
