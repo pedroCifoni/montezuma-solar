@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .clip-path-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  .bg-grid-size {
+    background-size: 30px 30px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: #F5F8FC; /* Claro */
+  color: #0A0F18; /* Texto Escuro */
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-drama {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.font-mono {
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* Base custom classes for animations/components */
+.magnetic-btn {
+  @apply relative overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.25,0.46,0.45,0.94)];
+}
+.magnetic-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 179, 0, 0.4); /* subtle amber glow */
+}
+
+.magnetic-btn::before {
+  content: "";
+  @apply absolute inset-0 bg-white/10 translate-y-[-100%] transition-transform duration-300 ease-out;
+}
+.magnetic-btn:hover::before {
+  @apply translate-y-0;
+}
+
+/* Subtle amber light reflection on interactive elements */
+.glowing-card {
+  @apply transition-shadow duration-500 border border-primary/5;
+}
+.glowing-card:hover {
+  @apply outline-none ring-1 ring-accent/30 shadow-solar-bloom border-accent/30;
+}
