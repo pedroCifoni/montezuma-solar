@@ -10,7 +10,7 @@ const Button = ({
   icon = true,
   external = true
 }) => {
-  const baseStyles = "inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 transform active:scale-95";
+  const baseStyles = "inline-flex items-center gap-3 px-8 py-4 rounded-full text-lg font-bold transition-all duration-300 transform active:scale-95 whitespace-nowrap";
   
   const variants = {
     primary: "bg-accent text-secondary hover:shadow-[0_0_20px_rgba(255,179,0,0.4)] hover:bg-accent/90",
