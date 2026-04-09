@@ -96,7 +96,7 @@ export const siteContent = {
     ]
   },
   footer: {
-    copy: "© 2025 Montezuma Solar. Todos os direitos reservados.",
+    copy: "© 2026 Montezuma Solar. Todos os direitos reservados.",
     address: "Fortaleza, Ceará - BR",
   }
 };
