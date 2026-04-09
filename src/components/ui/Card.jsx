@@ -6,13 +6,14 @@ const Card = ({
   highlight = false, 
   glow = false,
   glass = false,
-  padding = 'p-10'
+  padding = 'p-10',
+  overflow = 'overflow-hidden'
 }) => {
-  const baseStyles = "rounded-[2rem] border transition-all duration-500 overflow-hidden flex flex-col h-full relative";
+  const baseStyles = `rounded-[2rem] border transition-all duration-500 ${overflow} flex flex-col h-full relative`;
   
   const themes = {
-    standard: "bg-background/40 border-primary/5 hover:border-primary/10 hover:bg-white",
-    highlight: "bg-primary border-accent/30 shadow-2xl transform md:scale-105 z-20",
+    standard: "bg-white border-primary/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:bg-secondary hover:border-accent/30 hover:shadow-[0_20px_50px_rgba(6,11,20,0.3)] group",
+    highlight: "bg-white border-primary/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:bg-secondary hover:border-accent/30 hover:shadow-[0_20px_50px_rgba(6,11,20,0.3)] group transform md:scale-105 z-20",
     glass: "bg-surfaceGlass backdrop-blur-md border-white/10 hover:border-white/20",
   };
 

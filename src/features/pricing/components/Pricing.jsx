@@ -28,28 +28,32 @@ const Pricing = () => {
           <Card 
             key={index} 
             highlight={item.highlight}
+            overflow="overflow-visible"
           >
             {item.highlight && (
-              <div className="absolute top-0 right-10 transform -translate-y-1/2 bg-accent text-primary px-4 py-1 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg">
+              <div className="absolute top-0 right-10 transform -translate-y-1/2 bg-accent text-primary px-4 py-1 rounded-full text-[10px] font-black tracking-widest uppercase shadow-lg z-30">
                 Destaque
               </div>
             )}
             
-            <div className={`mb-8 p-4 rounded-2xl inline-block ${item.highlight ? 'bg-white/10' : 'bg-primary/5'}`}>
-              {iconMap[item.iconType]}
+            <div className={`mb-8 p-4 rounded-2xl inline-block transition-colors duration-500 bg-primary/5 group-hover:bg-white/10`}>
+              {React.cloneElement(iconMap[item.iconType], { 
+                className: `w-8 h-8 transition-colors duration-500 text-accent group-hover:text-accent` 
+              })}
             </div>
 
-            <h3 className={`font-heading font-extrabold text-2xl mb-4 ${item.highlight ? 'text-textLight' : 'text-primary'}`}>
+            <h3 className="font-heading font-extrabold text-2xl mb-4 text-primary group-hover:text-textLight transition-colors duration-500">
               {item.title}
             </h3>
             
-            <p className={`font-body text-base mb-10 flex-grow leading-relaxed ${item.highlight ? 'text-textLight/70' : 'text-textDark/50'}`}>
+            <p className="font-body text-base mb-10 flex-grow leading-relaxed text-textDark/50 group-hover:text-textLight/70 transition-colors duration-500">
               {item.description}
             </p>
 
             <Button 
               href={contact.whatsapp} 
-              variant={item.highlight ? 'primary' : 'outline'}
+              variant="primary"
+              className="group-hover:bg-accent group-hover:text-primary group-hover:border-accent transition-all duration-500"
             >
               {item.cta}
             </Button>
