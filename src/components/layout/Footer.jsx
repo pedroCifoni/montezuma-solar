@@ -1,54 +1,66 @@
 import React from 'react';
-import { siteContent } from '@content/siteContent';
+import { Phone, Mail, MapPin } from 'lucide-react';
+import { siteContent, whatsappLink } from '@content/siteContent';
 
 const Footer = () => {
-  const { footer, navbar } = siteContent;
+  const { footer, navbar, contact } = siteContent;
 
   return (
-    <footer className="bg-secondary text-textLight rounded-t-[4rem] px-6 md:px-16 pt-24 pb-8 overflow-hidden relative border-t border-accent/10">
-      <div className="absolute inset-0 bg-night-grid bg-grid-size opacity-30 pointer-events-none" />
-      
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 mb-16 relative z-10">
-
-        <div className="mb-12 md:mb-0">
-
-          <div className="font-heading font-extrabold text-3xl tracking-tighter flex items-center gap-3 mb-4">
-            <img 
-              src="/logo.jpeg" 
-              alt="Montezuma Logo" 
-              className="w-10 h-10 object-cover rounded-full border-2 border-accent drop-shadow-[0_0_8px_rgba(255,179,0,0.6)]" 
-            /> 
+    <footer className="bg-secondary text-textLight px-6 md:px-16 pt-20 pb-10">
+      <div className="max-w-7xl mx-auto grid gap-12 md:grid-cols-12">
+        <div className="md:col-span-6">
+          <a href="#hero" className="inline-flex items-center gap-3 font-heading font-extrabold text-2xl tracking-tight">
+            <img
+              src="/logo.jpeg"
+              alt=""
+              className="w-10 h-10 object-cover rounded-full ring-2 ring-accent"
+            />
             Montezuma Solar
-          </div>
-          <p className="font-body text-textLight/40 max-w-sm font-light leading-relaxed">
-            Energia solar simples, econômica e feita para o seu futuro.
-          </p>
+          </a>
+          <p className="mt-4 max-w-sm leading-relaxed text-textLight/65">{footer.tagline}</p>
         </div>
-        
-        <div className="flex justify-start md:justify-end gap-16 font-body text-sm text-textLight/60">
-          <div className="flex flex-col gap-4">
-            <span className="font-mono text-textLight/20 uppercase text-xs tracking-widest">Menu</span>
-            {navbar.links.map(link => (
-              <a 
-                key={link.href}
-                href={link.href} 
-                className="hover:text-accentGlow transition-colors"
+
+        <div className="md:col-span-3">
+          <h2 className="font-heading font-bold text-sm text-textLight">Contato</h2>
+          <ul className="mt-5 space-y-4 text-sm text-textLight/70">
+            <li>
+              <a
+                href={whatsappLink(contact.whatsappMessage)}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2.5 hover:text-accentGlow transition-colors"
               >
-                {link.label}
+                <Phone className="w-4 h-4 text-accent" />
+                {contact.whatsappLabel}
               </a>
-            ))}
-          </div>
+            </li>
+            <li>
+              <a href={`mailto:${contact.email}`} className="inline-flex items-center gap-2.5 hover:text-accentGlow transition-colors break-all">
+                <Mail className="w-4 h-4 text-accent shrink-0" />
+                {contact.email}
+              </a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <MapPin className="w-4 h-4 text-accent" />
+              {footer.address}
+            </li>
+          </ul>
         </div>
+
+        <nav className="md:col-span-3" aria-label="Rodapé">
+          <h2 className="font-heading font-bold text-sm text-textLight">Navegação</h2>
+          <ul className="mt-5 space-y-4 text-sm text-textLight/70">
+            {navbar.links.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} className="hover:text-accentGlow transition-colors">{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
 
-      <div className="max-w-7xl mx-auto pt-8 border-t border-textLight/10 flex flex-col md:flex-row justify-between items-center gap-4 relative z-10">
-        <p className="font-mono text-[10px] text-textLight/30 tracking-widest uppercase">
-          {footer.copy}
-        </p>
-        <div className="flex items-center gap-2 bg-textLight/5 px-4 py-2 rounded-full border border-textLight/5 backdrop-blur-sm">
-          <div className="w-2 h-2 rounded-full bg-green-500 animate-[pulse_2s_ease-in-out_infinite] shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
-          <span className="font-mono text-[10px] uppercase text-textLight/70 tracking-wider">System Operational</span>
-        </div>
+      <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-textLight/10 text-sm text-textLight/50">
+        {footer.copy}
       </div>
     </footer>
   );

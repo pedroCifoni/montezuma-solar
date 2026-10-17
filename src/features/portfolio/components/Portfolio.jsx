@@ -1,43 +1,39 @@
 import React from 'react';
+import { MapPin } from 'lucide-react';
 import { siteContent } from '@content/siteContent';
 import SectionHeader from '@components/ui/SectionHeader';
-import Card from '@components/ui/Card';
 
 const Portfolio = () => {
   const { portfolio } = siteContent;
 
   return (
-    <section className="py-24 px-6 md:px-16 bg-secondary text-textLight border-t border-accent/10" id="instalacoes">
-      <SectionHeader 
-        title={portfolio.title} 
-        subtitle={portfolio.subtitle} 
-        light 
-      />
-      
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        {portfolio.items.map((inst) => (
-          <Card 
-            key={inst.id} 
-            padding="p-0"
-            className="group"
-            glow
-          >
-            <div className="aspect-[4/3] w-full overflow-hidden bg-black/50">
-              <img 
-                src={inst.img} 
-                alt={inst.title} 
-                className="w-full h-full object-cover mix-blend-luminosity opacity-60 group-hover:mix-blend-normal group-hover:scale-105 group-hover:opacity-100 transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]" 
+    <section className="py-24 md:py-32 px-6 md:px-16 bg-white" id="projetos">
+      <SectionHeader title={portfolio.title} subtitle={portfolio.subtitle} />
+
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-6">
+        {portfolio.items.map((project) => (
+          <article key={project.id} className="group">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-line">
+              <img
+                src={project.img}
+                alt={`${project.title}, ${project.type} em ${project.city}`}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               />
+              <span className="absolute top-4 left-4 rounded-full bg-secondary/85 backdrop-blur px-3 py-1.5 text-xs font-bold text-textLight">
+                {project.power}
+              </span>
             </div>
-            <div className="p-8">
-              <h3 className="font-heading font-bold text-xl mb-3 text-textLight group-hover:text-accentGlow transition-colors">
-                {inst.title}
-              </h3>
-              <p className="font-body text-textLight/50 text-sm leading-relaxed">
-                {inst.desc}
-              </p>
-            </div>
-          </Card>
+            <h3 className="mt-5 font-heading font-bold text-xl text-primary">{project.title}</h3>
+            <p className="mt-1.5 flex items-center gap-1.5 text-sm text-textDark/60">
+              <MapPin className="w-3.5 h-3.5" />
+              {project.type} em {project.city}
+            </p>
+            <p className="mt-4 pt-4 border-t border-line text-sm text-textDark/70">
+              Economia de <strong className="font-heading text-base text-primary">{project.savings}</strong>
+            </p>
+          </article>
         ))}
       </div>
     </section>

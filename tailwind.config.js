@@ -8,30 +8,24 @@ export default {
     extend: {
       colors: {
         primary: "#0B1F3B",     // Azul Energia Profundo
-        secondary: "#060B14",   // Ceu Noturno
+        secondary: "#07142A",   // Ceu Noturno
         accent: "#FFB300",      // Ambar Solar
         accentGlow: "#FFD54F",  // Sol Eletrico
-        background: "#F5F8FC",  // Claro
-        surfaceGlass: "rgba(255,255,255,0.06)",
+        background: "#F3F6FA",  // Ceu Claro
+        line: "#DCE3EC",        // Divisores em fundo claro
         textLight: "#EAF2FF",
-        textDark: "#0A0F18"
+        textDark: "#0A0F18",
+        whatsapp: "#25D366",
       },
       fontFamily: {
-        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
-        subheading: ['Outfit', 'sans-serif'],
-        drama: ['"Cormorant Garamond"', 'serif'],
-        mono: ['"IBM Plex Mono"', 'monospace'],
-        body: ['Outfit', 'sans-serif']
+        heading: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        body: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'solar-glow': '0 0 20px rgba(255, 179, 0, 0.4)',
-        'solar-bloom': '0 0 40px rgba(255, 213, 79, 0.6)',
-        'glass': '0 8px 32px 0 rgba(11, 31, 59, 0.3)',
+        'solar-glow': '0 0 24px rgba(255, 179, 0, 0.35)',
+        'glass': '0 8px 32px 0 rgba(7, 20, 42, 0.35)',
+        'lift': '0 24px 48px -24px rgba(11, 31, 59, 0.35)',
       },
-      backgroundImage: {
-        'night-grid': 'linear-gradient(to right, rgba(234, 242, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(234, 242, 255, 0.05) 1px, transparent 1px)',
-        'radial-solar': 'radial-gradient(circle at center, rgba(255, 179, 0, 0.15) 0%, transparent 60%)',
-      }
     },
   },
   plugins: [],
