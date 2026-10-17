@@ -1,8 +1,6 @@
 import React from 'react';
 import { Home, Building2, TrendingUp, Check } from 'lucide-react';
-import { siteContent, whatsappLink } from '@content/siteContent';
-import Button from '@components/ui/Button';
-import WhatsAppIcon from '@components/ui/WhatsAppIcon';
+import { siteContent } from '@content/siteContent';
 
 const iconMap = {
   home: Home,
@@ -50,14 +48,6 @@ const Solutions = () => {
                       </li>
                     ))}
                   </ul>
-                  <Button
-                    href={whatsappLink(item.whatsappMessage)}
-                    variant="outline"
-                    className="mt-8 w-full sm:w-auto"
-                    icon={<WhatsAppIcon className="w-4 h-4" />}
-                  >
-                    {item.cta}
-                  </Button>
                 </div>
               </article>
             );

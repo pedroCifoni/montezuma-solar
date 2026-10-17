@@ -29,7 +29,7 @@ export const siteContent = {
   hero: {
     title: "Sua conta de luz pode cair até 90% com energia solar.", // TODO: confirmar percentual com o cliente
     subtitle: "Projetos para casas, empresas, condomínios e investidores no Ceará, do estudo da sua conta até a usina gerando.",
-    cta: "Pedir orçamento no WhatsApp",
+    cta: "Pedir orçamento",
     whatsappMessage: "Olá! Vim pelo site e quero um orçamento de energia solar.",
     secondaryCta: "Ver como funciona",
     // TODO: confirmar cada garantia com o cliente
@@ -46,7 +46,7 @@ export const siteContent = {
   },
   // TODO: substituir pelos números reais da empresa
   stats: [
-    { value: "+150", label: "projetos entregues" },
+    { value: "+70", label: "projetos entregues" },
     { value: "2,5 MWp", label: "de potência instalada" },
     { value: "R$ 3 mi", label: "economizados por ano pelos clientes" },
     { value: "4,9", label: "de nota no Google" },

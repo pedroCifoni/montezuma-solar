@@ -15,9 +15,15 @@ import { Faq } from '@features/faq';
 import { FinalCta } from '@features/cta';
 
 
+import useSectionHash from './useSectionHash';
+
 // GSAP registration is handled in @lib/gsap
 
+const SECTION_IDS = ['hero', 'solucoes', 'como-funciona', 'projetos', 'depoimentos', 'duvidas', 'orcamento'];
+
 export default function App() {
+  useSectionHash(SECTION_IDS);
+
   return (
     <div className="bg-background">
       <Navbar />
