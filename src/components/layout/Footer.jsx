@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
+import InstagramIcon from '@components/ui/InstagramIcon';
 import { siteContent, whatsappLink } from '@content/siteContent';
 
 const Footer = () => {
@@ -38,6 +39,17 @@ const Footer = () => {
               <a href={`mailto:${contact.email}`} className="inline-flex items-center gap-2.5 hover:text-accentGlow transition-colors break-all">
                 <Mail className="w-4 h-4 text-accent shrink-0" />
                 {contact.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={contact.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2.5 hover:text-accentGlow transition-colors"
+              >
+                <InstagramIcon className="w-4 h-4 text-accent" />
+                {contact.instagramLabel}
               </a>
             </li>
             <li className="flex items-center gap-2.5">

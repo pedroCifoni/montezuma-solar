@@ -15,6 +15,8 @@ export const siteContent = {
     whatsappLabel: "(85) 98897-0101",
     phone: "+55 85 98897 0101",
     email: "contato@montezumasolar.com.br",
+    instagram: "https://www.instagram.com/montezumasolar/",
+    instagramLabel: "@montezumasolar",
   },
   navbar: {
     links: [
