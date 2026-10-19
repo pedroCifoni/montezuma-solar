@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState, useEffect } from 'react';
+import React, { useLayoutEffect, useRef } from 'react';
 import { Check } from 'lucide-react';
 import { gsap } from '@lib/gsap';
 import Button from '@components/ui/Button';
@@ -14,19 +14,6 @@ const pointOnArc = (t) => ({
   x: ARC.cx - ARC.r * Math.cos(Math.PI * t),
   y: ARC.cy - ARC.r * Math.sin(Math.PI * t),
 });
-
-// The hero video is heavy, so it only loads on large screens
-const useIsDesktop = () => {
-  const query = '(min-width: 1024px)';
-  const [matches, setMatches] = useState(() => window.matchMedia(query).matches);
-  useEffect(() => {
-    const mql = window.matchMedia(query);
-    const onChange = (e) => setMatches(e.matches);
-    mql.addEventListener('change', onChange);
-    return () => mql.removeEventListener('change', onChange);
-  }, []);
-  return matches;
-};
 
 const SunPath = () => {
   const sunEnd = pointOnArc(SUN_END);
@@ -67,7 +54,6 @@ const SunPath = () => {
 
 const Hero = () => {
   const heroRef = useRef(null);
-  const isDesktop = useIsDesktop();
   const { hero, stats } = siteContent;
 
   // One orchestrated intro: the sun climbs its path while the copy settles in
@@ -128,27 +114,6 @@ const Hero = () => {
             ))}
           </ul>
         </div>
-
-        {isDesktop && (
-          <figure className="hero-reveal lg:col-span-5 flex justify-end">
-            <div className="relative aspect-[9/16] h-[600px] rounded-[1.75rem] overflow-hidden ring-1 ring-textLight/15 shadow-[0_30px_60px_-20px_rgba(0,0,0,0.7)] bg-black">
-              <video
-                className="w-full h-full object-cover"
-                src={hero.video.src}
-                poster={hero.video.poster || undefined}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-              />
-              <figcaption className="absolute left-4 bottom-4 flex items-center gap-2 rounded-full bg-secondary/80 backdrop-blur px-3.5 py-2 text-xs font-semibold">
-                <span className="w-2 h-2 rounded-full bg-accent" />
-                {hero.video.caption}
-              </figcaption>
-            </div>
-          </figure>
-        )}
       </div>
 
       {/* Horizon: proof numbers sit on the line where the sun path begins */}

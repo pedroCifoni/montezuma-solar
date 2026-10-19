@@ -40,11 +40,6 @@ export const siteContent = {
       "Homologação com a Enel inclusa",
       "Garantia de 25 anos nos módulos",
     ],
-    video: {
-      src: "/VideoUsinaComprimido.mp4",
-      poster: "",
-      caption: "Usina instalada pela Montezuma Solar",
-    },
   },
   // TODO: substituir pelos números reais da empresa
   stats: [
